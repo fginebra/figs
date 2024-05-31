@@ -1,0 +1,464 @@
+:root {
+  --primary: #ff6a3e;
+  --primaryLight: #ffba43;
+  --secondary: #ffba43;
+  --secondaryLight: #ffba43;
+  --headerColor: #1a1a1a;
+  --bodyTextColor: #4e4b66;
+  --bodyTextColorWhite: #fafbfc;
+  --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+  --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+  --bodyFontSize: 1rem;
+  --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--bodyTextColor);
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.cs-topper {
+  font-size: var(--topperFontSize);
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-align: inherit;
+  letter-spacing: .1em;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.cs-title {
+  font-size: var(--headerFontSize);
+  font-weight: 900;
+  line-height: 1.2em;
+  text-align: inherit;
+  max-width: 43.75rem;
+  margin: 0 0 1rem 0;
+  color: var(--headerColor);
+  position: relative;
+}
+
+.cs-text {
+  font-size: var(--bodyFontSize);
+  line-height: 1.5em;
+  text-align: inherit;
+  width: 100%;
+  max-width: 40.625rem;
+  margin: 0;
+  color: var(--bodyTextColor);
+}
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+#faq-1741 {
+  padding: var(--sectionPadding);
+  position: relative;
+}
+#faq-1741 .cs-container {
+  width: 100%;
+  max-width: 36.5rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+#faq-1741 .cs-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#faq-1741 .cs-title {
+  max-width: 15ch;
+  margin: 0 0 2rem;
+}
+#faq-1741 .cs-button-solid {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+  text-align: center;
+  text-decoration: none;
+  min-width: 9.375rem;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+#faq-1741 .cs-button-solid:before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  background: #000;
+  opacity: 1;
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: width 0.3s;
+}
+#faq-1741 .cs-button-solid:hover:before {
+  width: 100%;
+}
+#faq-1741 .cs-faq-group {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+#faq-1741 .cs-faq-item {
+  list-style: none;
+  width: 100%;
+  overflow: hidden;
+  transition: border-bottom 0.3s;
+}
+#faq-1741 .cs-faq-item.active .cs-button {
+  background-color: var(--primary);
+  color: var(--bodyTextColorWhite);
+}
+#faq-1741 .cs-faq-item.active .cs-button:before {
+  background-color: var(--bodyTextColorWhite);
+  transform: rotate(315deg);
+}
+#faq-1741 .cs-faq-item.active .cs-button:after {
+  background-color: var(--bodyTextColorWhite);
+  transform: rotate(-315deg);
+}
+#faq-1741 .cs-faq-item.active .cs-item-text {
+  height: auto;
+  padding: 1rem clamp(1rem, 2vw, 1.5rem);
+  opacity: 1;
+  border: 1px solid #e8e8e8;
+}
+#faq-1741 .cs-button {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: bold;
+  line-height: 1.2em;
+  text-align: left;
+  width: 100%;
+  padding: 1rem;
+  padding-left: 3.25rem;
+  background-color: transparent;
+  color: var(--headerColor);
+  border: 1px solid #e8e8e8;
+  display: block;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s;
+}
+#faq-1741 .cs-button:hover {
+  cursor: pointer;
+}
+#faq-1741 .cs-button:before {
+  content: "";
+  width: 0.5rem;
+  height: 0.125rem;
+  background-color: var(--headerColor);
+  opacity: 1;
+  display: block;
+  position: absolute;
+  top: 45%;
+  left: 1.125rem;
+  transform: rotate(45deg);
+  transition: transform 0.5s;
+  transform-origin: left center;
+}
+#faq-1741 .cs-button:after {
+  content: "";
+  width: 0.5rem;
+  height: 0.125rem;
+  background-color: var(--headerColor);
+  opacity: 1;
+  display: block;
+  position: absolute;
+  top: 45%;
+  left: 1.3125rem;
+  transform: rotate(-45deg);
+  transition: transform 0.5s;
+  transform-origin: right center;
+}
+#faq-1741 .cs-item-text {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.5em;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--bodyTextColor);
+  opacity: 0;
+  transition: opacity 0.3s, padding-bottom 0.3s;
+}
+#faq-1741 .cs-gallery {
+  width: 100%;
+  max-width: 36.5rem;
+  margin: clamp(3rem, 6vw, 4rem) auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(1rem, 1.5vw, 1.25rem);
+}
+#faq-1741 .cs-picture {
+  min-height: clamp(13.125rem, 27vw, 25rem);
+  display: block;
+  grid-column: span 5;
+  grid-row: span 1;
+  position: relative;
+}
+#faq-1741 .cs-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#selector-dia {
+  width: 50%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+#selector-alcaldia {
+  width: 50%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+#selector-dia-aux {
+  width: 50%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+#selector-dia:hover {
+  border-color: #888;
+}
+#selector-dia:focus {
+  outline: none;
+  border-color: #0056b3;
+  box-shadow: 0 0 0 3px rgba(0,86,179,0.25);
+}
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+#faq-1741 .cs-gallery {
+  max-width: 107.5rem;
+}
+#faq-1741 .cs-picture {
+  grid-column: span 1;
+}
+}
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+#faq-1741 .cs-container {
+  max-width: 80rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+#faq-1741 .cs-content {
+  text-align: left;
+  width: 40%;
+  align-items: flex-start;
+  flex: none;
+}
+#faq-1741 .cs-gallery {
+  grid-template-columns: repeat(5, 1fr);
+}
+#faq-1741 .cs-picture {
+  grid-column: span 1;
+}
+#faq-1741 .cs-picture:nth-of-type(4),
+#faq-1741 .cs-picture:nth-of-type(5) {
+  grid-column: span 1;
+}
+}
+
+canvas {
+max-width: 100%;
+height: auto;
+}
+
+#additional-content {
+background-color: #f9f9f9;
+padding: 50px 20px;
+}
+
+.additional-container {
+max-width: 1200px; /* Increased width to fill more space */
+margin: 0 auto;
+text-align: left;
+}
+
+.additional-container h2 {
+text-align: center;
+margin-bottom: 20px;
+}
+
+.additional-container p {
+margin-bottom: 20px;
+}
+
+/* Styles for the conclusion section */
+#conclusion {
+  background-color: #ffba43;
+  padding: 50px 20px;
+}
+
+.conclusion {
+  max-width: 1200px; /* Increased width to fill more space */
+  margin: 0 auto;
+  text-align: left;
+}
+
+.conclusion h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.conclusion p {
+  margin-bottom: 20px;
+}
+
+#map-container iframe {
+  border: none;
+  margin-bottom: 20px;
+}
+
+#map-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+}
+
+.side-by-side-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  height: 90vh; /* Increase height to fill more of the window */
+}
+
+.side-by-side-item {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 1 / 1.5; /* Maintain square aspect ratio */
+}
+
+.side-by-side-item img,
+.side-by-side-item iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .side-by-side-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .side-by-side-item {
+    width: 100%;
+    aspect-ratio: auto; /* Adjust to full width for smaller screens */
+  }
+}
+
+.conclusion {
+  position: relative;
+}
+
+.text-content {
+  margin-right: 55%; /* Adjust this value to provide space for the image */
+}
+
+.image-container {
+  float: right;
+  width: 50%; /* Adjust the width as needed */
+  margin-left: 20px;
+  position: relative; /* Enable positioning adjustments */
+  top: -400px; /* Adjust this value to move the image up or down */
+}
+
+.right-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.full-width {
+  width: 100%;
+  display: block;
+}
+
+/* Clearfix to ensure following content is not affected by floating elements */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Styles for the multas section */
+#multas {
+  background-color: #f0f0f0; /* Add a background color to distinguish sections */
+  padding: 50px 20px;
+}
+
+.multas .content {
+  display: flex;
+  justify-content: space-between; /* Ensures content is spaced correctly */
+  align-items: flex-start;
+}
+
+.text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.graph-container {
+  flex: 0 0 50%; /* Adjusted to take up half of the screen width */
+  max-width: 50%; /* Ensure it doesn't exceed half the screen */
+}
+
+#multas_chart {
+  width: 100%;
+  height: auto;
+}
+
+.call-to-action {
+  text-align: center;
+  margin-top: 20px; /* Adjust margin to control spacing */
+}
+

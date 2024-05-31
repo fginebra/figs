@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis accidentes viales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="animation.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <section id="faq-1741">
+        <div class="cs-container">
+            <div class="cs-content">
+                <span class="cs-topper">Para el peatón, ciclista y conductor de la CDMX:</span>
+                <h2 class="cs-title">¿Qué tan expuesto estás a riesgos por incidentes viales?</h2>
+                <p>Fátima Ginebra, Sebastián Ibarra
+                </p>
+                <a class="cs-button-solid">
+                    Bases de datos (añadir link despues)
+                </a>
+                <select id="selector-dia-aux">
+                    <option value="hora_total.csv">General</option>
+                    <option value="hora_lunes.csv">Lunes</option>
+                    <option value="hora_martes.csv">Martes</option>
+                    <option value="hora_miercoles.csv">Miércoles</option>
+                    <option value="hora_jueves.csv">Jueves</option>
+                    <option value="hora_viernes.csv">Viernes</option>
+                    <option value="hora_sabado.csv">Sábado</option>
+                    <option value="hora_domingo.csv">Domingo</option>
+                </select>
+                <select id="selector-alcaldia"></select>
+                <select id="selector-dia"></select>
+            </div>
+            <div class="cs-flex-group">
+                <ul class="cs-faq-group">
+                    <li class="cs-faq-item" id="grafica4-tab">
+                        <div class="cs-analysis">
+                            <p style="font-size: 24px;">  Como peatones, ciclistas o conductores en esta cidad
+                            es importante conocer los riesgos a los que estamos expuestos en la ciudad. Mira aquí los incidentes viales más comunes de 2022-2024.
+                            Puedes ver también las alcaldías, horas y días en las que estamos más expuestos a accidentes.
+                            </p>
+                        </div>
+                        <button class="cs-button" data-target="grafica4">
+                            <span class="cs-button-text">Número de incidentes por causa</span>
+                        </button>
+                        <p class="cs-item-text">
+                            <canvas id="por_incidente_histogram" width="300" height="200"></canvas>
+                        </p>
+                    </li>
+                    <li class="cs-faq-item" id="grafica1-tab">
+                        <div class="cs-analysis">
+                            <p> Desafortunadamente, los peatones están desprotegidos y, desfortunadamente, simplemente caminar en la ciudad los pone en gran riesgo.
+                            </p>
+                        </div>
+                        <button class="cs-button" data-target="grafica1">
+                            <span class="cs-button-text">Distribución horaria</span>
+                        </button>
+                        <p class="cs-item-text">
+                            <canvas id="por_hora" width="300" height="200"></canvas>
+                        </p>
+                    </li>
+                    <li class="cs-faq-item" id="grafica2-tab">
+                        <div class="cs-analysis">
+                            <p>Esta gráfica presenta la distribución horaria de los incidentes.</p>
+                        </div>
+                        <button class="cs-button" data-target="grafica2">
+                            <span class="cs-button-text">Distribución horaria por alcaldía</span>
+                        </button>
+                        <p class="cs-item-text">
+                            <canvas id="por_alcaldia"></canvas>
+                        </p>
+                    </li>
+                    <li class="cs-faq-item" id="grafica3-tab">
+                        <div class="cs-analysis">
+                            <p>Esta gráfica presenta la distribución horaria de los incidentes por alcaldía.</p>
+                        </div>
+                        <button class="cs-button" data-target="grafica3">
+                            <span class="cs-button-text">Cantidad por alcaldía</span>
+                        </button>
+                        <p class="cs-item-text">
+                            <canvas id="por_alcaldia_histogram" width="300" height="200"></canvas>
+                        </p>
+                        <p>Esta gráfica presenta la cantidad de los incidentes por alcaldía.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="additional-content">
+        <div class="additional-container">
+            <h2 style="font-size: 36px;">El incidente automovilístico más letal de todos: volcaduras de coches</h2>
+            <p>Sabías que aproximadamente la mitad de todos los accidentes por volcadura de coches resultan en la muerte de sus ocupantes?</p>
+            <div class="side-by-side-container">
+                <img src="incident_locations.png" alt="Mapa de ubicaciones de incidentes" class="side-by-side-item">
+                <iframe src="incident_map.html" class="side-by-side-item"></iframe>
+            </div>
+            <p>Las líneas que ves más marcadas no son coincidencia. Mira con detalle el streetmap.
+                Las volcaduras registradas se encuentran más concentradas en las carreteras, sobre todo la México-Toluca y la México-Cuernavaca.</p>
+            <h2 style="font-size: 28px;">El 18% de los accidentes de motociclistas terminan en urgencias médicas.</h2>
+            <p>Aquí un amable recordatorio de los conductores de dar indicaciones de sus maniobras manejando... y de los motociclistas de tener más cuidado.</p>
+            <h2 style="font-size: 36px;">Ahora para los ciclistas, dónde tienes más riesgo a ser accidentado?...</h2>
+            <div class="side-by-side-container">
+                <img src="ciclista.png" alt="Mapa de ubicaciones de incidentes" class="side-by-side-item">
+                <iframe src="ciclista.html" class="side-by-side-item"></iframe>
+            </div>
+            <p>Mira con atención la gráfica anterior. Vemos algunas líneas verticales bastante marcadas. Échate un clavado al streetmap.. qué ves?</p>
+            <p> Las vialidad de Paseo de la Reforma (sobre todo por el centro) e insurgentes están llenos de incidentes viales.
+                Estas avenidas, que de hecho tienen carril para ciclistas tienen la mayoría de los accidentes. No se supone que son seguras para ciclistas?</p>
+                Adicionalmente, presiona los pins del mapa, y verás que sobre la Calzada de Guadalupe hay varios incidentes en fechas decembrinas</p>
+        </div>
+    </section>
+    <section id="conclusion">
+        <div class="conclusion">
+            <h2 style="font-size: 36px;">¿Y qué tal los métodos de reporte?</h2>
+            <div class="text-content">
+                <p>Ahora veamos algunos números sobre métodos de reporte de accidentes.</p>
+                <p>En 2020 se implementaron los botones de auxilio para reportar emergencias. Ahora es el tercer método de reporte más utilizado después de la llamada al 911.</p>
+                <canvas id="metodo_reporte" width="300" height="200"></canvas>
+            </div>
+            <div class="image-container">
+                <img src="botonaux.jpg" alt="Botón de Auxilio" class="right-image">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+      </section>
+      
+      <section id="multas">
+        <div class="multas">
+            <h2 style="font-size: 36px;">¿Las infracciones coinciden con los incidentes?</h2>
+            <div class="content">
+                <div class="text">
+                    <p style="font-size: 18px;">Esta gráfica a la derecha nos muestra que la estrategia del gobierno para imponer infracciones está desalineada con la realidad.</p>
+                    <p style="font-size: 18px;">Lo que podemos observar es que las alcaldías con mayor número de incidentes no necesariamente tienen registradas más multas.</p>
+                    <p style="font-size: 18px;">Adicionalmente, al revisar las infracciones de tránsito, solo 12 de 500,000 registros fueron por motivos de alcohol; hecho que no es congruente con la realidad.</p>
+                </div>
+                <div class="graph-container">
+                    <canvas id="multas_chart" width="600" height="400"></canvas> <!-- Adjust the width and height values as needed -->
+                </div>
+            </div>
+            <h2 class="call-to-action" style="font-size: 24px;">
+            Esto es un llamado al gobierno a asegurar la seguridad de sus ciudadanos, colocando cámaras en los lugares correctos, implementando estrategias para cuidar a los ciclistas.
+            Debe trabajar más en la prevención de los incidentes que en su registro.
+            </h2>
+            <h2 class="call-to-action" style="font-size: 24px;">
+            También un llamado al conductor a cuidar su velocidad, porque los atropellados son el tercer incidente más común.
+            </h2>
+        </div>
+    </section>
+    
+      
+
+
+    <script src="por_hora.js" defer></script>
+    <script src="por_alcaldia.js" defer></script>
+    <script src="multas.js" defer></script>
+    <script src="por_alcaldia_histogram.js" defer></script>
+    <script src="animation.js" defer></script>
+    <script src="por_incidente_histogram.js" defer></script>
+    <script src="metodo_reporte.js" defer></script>
+
+</body>
+</html>
